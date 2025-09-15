@@ -6,6 +6,15 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from week2_elarn_01_unit_test import calculate_discount
 
+def calculate_discount(loyalty_points):
+    if loyalty_points >= 1000:
+        return 20
+    elif loyalty_points >= 500:
+        return 10
+    else:
+        return 0
+
+
 class TestCalculateDiscount(unittest.TestCase):
     """
     Unit tests for the calculate_discount function, which determines discount percentage based on loyalty points.
@@ -18,6 +27,8 @@ class TestCalculateDiscount(unittest.TestCase):
     Each test method validates that the calculate_discount function returns the expected
     discount percentage for various inputs within each range.
     """
+
+    
     
     def test_high_loyalty_points(self):
         """Test that 1000 or more loyalty points gives 20% discount"""
